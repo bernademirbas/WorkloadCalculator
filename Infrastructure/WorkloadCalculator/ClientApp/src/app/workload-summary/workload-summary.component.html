@@ -1,0 +1,41 @@
+<h1>Workload Summary</h1>
+
+
+<p>Start Date : {{startDate |date:'yyyy-MM-dd'}}</p>
+<p>End Date : {{endDate |date:'yyyy-MM-dd'}}</p>
+<p>Total Hours : {{totalHours}}</p>
+
+<h3>Selected Courses: </h3>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="this.courses">
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Total Hours</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses;">
+      <td>{{ course.name }}</td>
+      <td>{{ course.totalHour }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p></p>
+<h3>Weekly Work Plan: </h3>
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="this.weeklyHours">
+    <thead>
+      <tr>
+        <th *ngFor="let weeklyHour of this.weeklyHours.values();let i=index;">
+          Week : {{i+1}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let weeklyHour of this.weeklyHours.values();">
+          {{ weeklyHour }} hour
+        </td>
+      </tr>
+    </tbody>
+  </table>

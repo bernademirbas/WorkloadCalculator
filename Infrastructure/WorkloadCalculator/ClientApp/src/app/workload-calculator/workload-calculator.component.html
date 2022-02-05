@@ -1,0 +1,41 @@
+<h1 id="tableLabel">Workload Calculator</h1>
+
+<p>Please select preferred courses and time box for your workload below:</p>
+
+<div>
+  <div>
+    <form [formGroup]="coursesForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="center-block">
+          Start Date:<input type="date" class="form-control" min="{{minimumDate|date:'yyyy-MM-dd'}}" formControlName="startDate">
+        </label>
+        <label class="center-block">
+          End Date:<input type="date" class="form-control"  max="{{maximumDate|date:'yyyy-MM-dd'}}" formControlName="endDate">
+        </label>
+        
+        <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="courseList">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Course Name</th>
+              <th>Total Hours</th>
+            </tr>
+          </thead>
+          <tbody formArrayName='courses'>
+            <tr *ngFor="let course of coursesForm.get('courses').controls;let i=index;" [formGroupName]='i'>
+              <td><input type="checkbox" formControlName="status" /></td>
+              <td>{{ course.value.name }}</td>
+              <td>{{ course.value.totalHour }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="text-danger list-unstyled" *ngIf="errors">
+          <li *ngFor="let error of errors">
+            {{error}}
+          </li>
+        </ul>
+        <button [disabled]="coursesForm.invalid" class="btn btn-primary justify-content-end" type="submit">Calculate</button>
+      </div>
+    </form>
+  </div>
+</div>
