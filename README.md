@@ -25,8 +25,8 @@ I used ASP.NET 5 Web API, ASP.NET Core with Angular, Azure SQL Database, Entity 
 • For the frontend side, desing and usability should be better regarding to user needs. Also, some core services and different modules should be use if project extends.
 
 ## Workload Calculator:
-![Workload Calculator](.Infrastructure/WorkloadCalculator/ClientApp/src/assets/images/Workload-Calculator.jpg)
+![Workload Calculator](./Infrastructure/WorkloadCalculator/ClientApp/src/assets/images/Workload-Calculator.jpg)
 
 
 ## Workload Summary:
-![Workload Summary](.Infrastructure/WorkloadCalculator/ClientApp/src/assets/images/Workload-Summary.jpg)
+![Workload Summary](./Infrastructure/WorkloadCalculator/ClientApp/src/assets/images/Workload-Summary.jpg)
